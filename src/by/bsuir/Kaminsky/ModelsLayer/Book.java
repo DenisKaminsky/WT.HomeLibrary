@@ -1,6 +1,10 @@
-package by.bsuir.Kaminsky.BusinessLayer;
+package by.bsuir.Kaminsky.ModelsLayer;
 
-public class Book {
+import java.io.Serializable;
+
+public class Book implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	
 	private String author;
 	private String title;

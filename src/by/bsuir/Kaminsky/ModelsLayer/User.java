@@ -1,4 +1,4 @@
-package by.bsuir.Kaminsky.BusinessLayer;
+package by.bsuir.Kaminsky.ModelsLayer;
 
 public class User {
 	
