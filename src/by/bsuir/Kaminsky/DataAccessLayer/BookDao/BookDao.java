@@ -12,26 +12,62 @@ public class BookDao implements IBookDao{
 	{
 		fileName = getDatabasePath();
 	}
-	
+		
 	public boolean delete(Book book) {
 		int counter = 0;
+		boolean flag = false;
 		ArrayList<Book> books = getBooks();
 		
 		for (Book currentBook : books) {
-			if (currentBook.equals(book))
+			if (currentBook.equals(book)){			
 				books.remove(counter);
+				flag = true;
+			}
 			counter++;
 		}
-		try {
-			SerializeBooks(books, fileName);
-		} catch (IOException e) {
-			e.printStackTrace();
+		if (!flag)
+		{
+			try {
+				SerializeBooks(books, fileName);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
-		return true;
+		return flag;
 	}
 	
-	public boolean save(Book book) {		
-		return false;
+	public boolean save(Book book) {
+		boolean flag = false;
+		File f = new File(fileName);	
+		Book searchBook = null;
+		ArrayList<Book> books = getBooks();		
+		
+		if(!f.exists()) {
+			try {
+				f.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}	
+		}
+		for (Book currentBook : books) {
+			if (currentBook.equals(book))
+			{
+				searchBook = currentBook;
+				break;
+			}
+		}
+		if (searchBook == null)
+		{
+			books.add(book);
+			flag = true;
+				
+			try {
+				SerializeBooks(books, fileName);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}		
+		}
+		return flag;
 	}
 	
 	public ArrayList<Book> getBooks2(){
