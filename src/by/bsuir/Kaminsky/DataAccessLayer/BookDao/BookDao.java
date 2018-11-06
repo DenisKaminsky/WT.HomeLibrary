@@ -14,8 +14,19 @@ public class BookDao implements IBookDao{
 	}
 	
 	public boolean delete(Book book) {
+		int counter = 0;
 		ArrayList<Book> books = getBooks();
 		
+		for (Book currentBook : books) {
+			if (currentBook.equals(book))
+				books.remove(counter);
+			counter++;
+		}
+		try {
+			SerializeBooks(books, fileName);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return true;
 	}
 	

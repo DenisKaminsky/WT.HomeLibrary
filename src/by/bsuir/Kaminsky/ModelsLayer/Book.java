@@ -41,6 +41,20 @@ public class Book implements Serializable{
 	}
 	
 	@Override
+	public boolean equals(Object obj) {
+		Book book;
+		
+		if (obj == this) 
+			return true;
+		if (obj == null || obj.getClass() != this.getClass())
+            return false;
+		book = (Book)obj;
+        return (isElectronic == book.isElectronic) && (title == book.title ||
+            (title != null && title.equals(book.getTitle())))
+                && (author == book.author || (author != null && author.equals(book.getAuthor())));
+	}
+	
+	@Override
 	public String toString() {
 		String type = (isElectronic)?"Electronic":"Paper";
 		return  "Title: " + title +
