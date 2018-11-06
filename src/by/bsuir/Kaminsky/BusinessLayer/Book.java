@@ -32,7 +32,7 @@ public class Book {
 		return isElectronic;
 	}
 	
-	public void setAuthor(Boolean value) {
+	public void setIsElectronic(Boolean value) {
 		isElectronic = value;
 	}
 }
