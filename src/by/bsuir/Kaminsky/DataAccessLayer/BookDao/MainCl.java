@@ -1,7 +1,6 @@
 package by.bsuir.Kaminsky.DataAccessLayer.BookDao;
 
 import java.util.ArrayList;
-
 import by.bsuir.Kaminsky.ModelsLayer.Book;
 
 public class MainCl {
@@ -15,5 +14,6 @@ public class MainCl {
 			System.out.println(book.getAuthor());
 			System.out.println(book.getTitle());
 		}
+
 	}
 }

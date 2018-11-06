@@ -59,13 +59,21 @@ public class BookDao implements IBookDao{
 		ArrayList<Book> result= new ArrayList<Book>();
 		
 		for (Book book : books) {
-			//if (book.getTitle())
+			if (book.getTitle().equals(title))
+				result.add(book);
 		}
-		return null;
+		return result;
 	}
 	
 	public ArrayList<Book> getBooksByAuthor(String author){
-		return null;
+		ArrayList<Book> books = getBooks();
+		ArrayList<Book> result= new ArrayList<Book>();
+		
+		for (Book book : books) {
+			if (book.getAuthor().equals(author))
+				result.add(book);
+		}
+		return result;
 	}
 	
 	private void SerializeBooks(ArrayList<Book> books,String fileName) throws IOException {
@@ -78,6 +86,7 @@ public class BookDao implements IBookDao{
 	}
 	
 	
+	@SuppressWarnings("unchecked")
 	private ArrayList<Book> DeserializeBooks(String fileName) throws IOException, ClassNotFoundException{
 		ArrayList<Book> result;
 		FileInputStream fileStream = new FileInputStream(fileName);
