@@ -11,8 +11,7 @@ public class MainCl {
 		books = dao.getBooks();
 		System.out.println(books.size());
 		for (Book book : books) {
-			System.out.println(book.getAuthor());
-			System.out.println(book.getTitle());
+			System.out.println(book);
 		}
 
 	}

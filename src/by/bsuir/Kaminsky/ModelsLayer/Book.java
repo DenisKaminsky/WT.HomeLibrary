@@ -39,4 +39,12 @@ public class Book implements Serializable{
 	public void setIsElectronic(Boolean value) {
 		isElectronic = value;
 	}
+	
+	@Override
+	public String toString() {
+		String type = (isElectronic)?"Electronic":"Paper";
+		return  "Title: " + title +
+                ",\nAuthor: " + author +
+                ",\nType: "+ type;
+	}
 }

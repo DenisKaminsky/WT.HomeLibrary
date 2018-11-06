@@ -14,8 +14,9 @@ public class BookDao implements IBookDao{
 	}
 	
 	public boolean delete(Book book) {
+		ArrayList<Book> books = getBooks();
 		
-		return false;
+		return true;
 	}
 	
 	public boolean save(Book book) {		
