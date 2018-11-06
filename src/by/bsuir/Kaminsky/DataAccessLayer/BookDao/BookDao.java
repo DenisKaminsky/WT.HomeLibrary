@@ -25,7 +25,7 @@ public class BookDao implements IBookDao{
 			}
 			counter++;
 		}
-		if (!flag)
+		if (flag)
 		{
 			try {
 				SerializeBooks(books, fileName);

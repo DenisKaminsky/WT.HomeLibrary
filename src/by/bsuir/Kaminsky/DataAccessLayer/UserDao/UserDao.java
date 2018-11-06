@@ -2,6 +2,7 @@ package by.bsuir.Kaminsky.DataAccessLayer.UserDao;
 
 import java.io.*;
 import java.util.ArrayList;
+
 import by.bsuir.Kaminsky.ModelsLayer.User;
 
 public class UserDao implements IUserDao {
@@ -14,11 +15,61 @@ public class UserDao implements IUserDao {
 	}
 	
 	public boolean delete(User user){
-		return true;
+		int counter = 0;
+		boolean flag = false;
+		ArrayList<User> users = getUsers();
+		
+		for (User currentUser : users) {
+			if (currentUser.equals(user)){	
+				flag = true;
+				break;
+			}
+			counter++;
+		}
+		if (flag)
+		{
+			users.remove(counter);
+			try {
+				SerializeUsers(users, fileName);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return flag;
 	}
 	
     public boolean save(User user) {
-    	return true;
+    	boolean flag = false;
+		File f = new File(fileName);	
+		User searchUser = null;
+		ArrayList<User> users = getUsers();		
+		
+		if(!f.exists()) {
+			try {
+				f.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}	
+		}
+		for (User currentUser : users) {
+			if (currentUser.equals(user))
+			{
+				searchUser = currentUser;
+				break;
+			}
+		}
+		if (searchUser == null)
+		{
+			users.add(user);
+			flag = true;
+				
+			try {
+				SerializeUsers(users, fileName);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}		
+		}
+		return flag;
     }
     
     public User getAuthorizeUser(String login, String password) {
@@ -47,9 +98,8 @@ public class UserDao implements IUserDao {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}			
-		}		
-		
-    	return null;
+		}
+    	return users;
     }
     
     private void SerializeUsers(ArrayList<User> users,String fileName) throws IOException {
