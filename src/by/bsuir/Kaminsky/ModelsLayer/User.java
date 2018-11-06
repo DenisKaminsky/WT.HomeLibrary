@@ -1,6 +1,10 @@
 package by.bsuir.Kaminsky.ModelsLayer;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	private String login;
 	private String password;
@@ -35,4 +39,27 @@ public class User {
 	public void setIsAdministrator(Boolean value) {
 		isAdministrator = value;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		User user;
+		
+		if (obj == this) 
+			return true;
+		if (obj == null || obj.getClass() != this.getClass())
+            return false;
+		user = (User)obj;
+        return (isAdministrator == user.isAdministrator) && (login == user.login ||
+            (login != null && login.equals(user.getLogin())))
+                && (password == user.password || (password != null && password.equals(user.getPassword())));
+	}
+	
+	@Override
+	public String toString() {
+		String type = (isAdministrator)?"Administrator":"User";
+		return  "Login: " + login +
+                ",\nPassword: " + password +
+                ",\nType: "+ type;
+	}
+	
 }

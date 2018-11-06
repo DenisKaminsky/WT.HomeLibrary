@@ -70,22 +70,6 @@ public class BookDao implements IBookDao{
 		return flag;
 	}
 	
-	public ArrayList<Book> getBooks2(){
-		File f = new File(fileName);
-		ArrayList<Book> books = new ArrayList<Book>();
-		
-		books.add(new Book("Булгаков А.В.", "Книга 1", true));
-		books.add(new Book("Пушкин А.В.", "Книга 2", false));				
-		if(f.exists() && !f.isDirectory()) {
-			try {
-				SerializeBooks(books, fileName);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}		
-		return books;
-	}
-	
 	public ArrayList<Book> getBooks(){
 		File f = new File(fileName);
 		ArrayList<Book> books = new ArrayList<Book>();
