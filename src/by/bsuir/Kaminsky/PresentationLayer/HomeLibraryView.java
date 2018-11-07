@@ -8,25 +8,22 @@ public class HomeLibraryView {
 		System.out.println(message);
 	}
 	
-	public static ArrayList<Object> authorizeRequest(){
+	public static Object[] getPersonalData(){
 		boolean answer;
-		ArrayList<Object> result = new ArrayList<Object>();
-		String login,password;
+		String login,password,attribute="";
 		
 		System.out.print("Do you have an account(Y/N): ");
 		answer = ConsoleReader.getAnswer();
 		if (answer)
-			System.out.println("Authorization:");
+			System.out.println("<Authorization>");
 		else {
-			System.out.println("Registration:");
+			attribute = "(minimum 5 character)";
+			System.out.println("<Registration>");			
 		}
 		System.out.print("Input login: ");
 		login = ConsoleReader.getString();
-		System.out.print("Input password: ");
-		password = ConsoleReader.getString();
-		result.add(answer);
-		result.add(login);
-		result.add(password);		
-		return result;
+		System.out.print("Input password"+attribute+": ");
+		password = ConsoleReader.getString();		
+		return new Object[] {answer,login,password};
 	}
 }
