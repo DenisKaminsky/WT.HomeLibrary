@@ -21,6 +21,19 @@ public class Controller {
 		}
 	}
 	
+	public static Object[] addBookRequest() {
+		Object[] result = HomeLibraryView.getBookData();
+		
+		result[0] = ((String)result[0]).trim();
+		result[1] = ((String)result[1]).trim();
+		if ( ( ((String)result[0]).length() >0 ) && ( ((String)result[1]).length()>0 ) )
+			return result;
+		else{		
+			notifyUserRequest("Uncorrect data");
+			return null;		
+		}
+	}
+	
 	public static int chooseActionRequest(boolean isAdmin){
 		int result  = -1;
 		String action = HomeLibraryView.getAction().toLowerCase().trim();

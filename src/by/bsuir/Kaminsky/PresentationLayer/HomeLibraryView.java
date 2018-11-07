@@ -27,6 +27,19 @@ public class HomeLibraryView {
 		return new Object[] {answer,login,password};
 	}
 	
+	public static Object[] getBookData() {
+		Boolean answer;
+		String title,author;
+				
+		System.out.print("Input author: ");
+		author = ConsoleReader.getString();	
+		System.out.print("Input title: ");
+		title = ConsoleReader.getString();
+		System.out.print("Is Electronic(Y/N): ");
+		answer = ConsoleReader.getAnswer();
+		return new Object[] {author,title,answer};		
+	}
+	
 	public static String getAction() {		
 		System.out.print("\nInput command(/help to see more info): ");
 		return ConsoleReader.getString();
