@@ -24,7 +24,7 @@ public class UserDao implements IUserDao {
 	/**
 	 * Delete user from users database
 	 * @param login - Users email
-	 * @return return true if user was successfully deleted from database
+	 * @return return true if user was successfully deleted from users database, else return false
 	 */
 	public boolean delete(String login){
 		int counter = 0;
@@ -51,9 +51,9 @@ public class UserDao implements IUserDao {
 	}
 	
 	/**
-	 * Save user to database
+	 * Save user to users database
 	 * @param user - User entity
-	 * @return true if user was successfully added to users database
+	 * @return true if user was successfully added to users database, else return false
 	 */
     public boolean save(User user) {
     	boolean flag = false;
@@ -111,7 +111,7 @@ public class UserDao implements IUserDao {
     
     /**
      * Get all users from users database
-     * @return return list of user entities
+     * @return return list of user entities if they was successfully loaded from file, else return empty list
      */
     public ArrayList<User> getUsers(){
     	File f = new File(fileName);
@@ -146,6 +146,7 @@ public class UserDao implements IUserDao {
     /**
      * Deserialize list of user entities from users database
      * @param fileName - path to users database
+     * @return return list of user entities if they was successfully loaded from file, else return empty list
      */
 	@SuppressWarnings("unchecked")
 	private ArrayList<User> DeserializeUsers(String fileName) throws IOException, ClassNotFoundException{
@@ -167,7 +168,7 @@ public class UserDao implements IUserDao {
 	}
     
 	/**
-     * Calculate path do users database
+     * Calculate path to users database
      * @return return path to users database
      */
     private String getDatabasePath(){

@@ -5,7 +5,7 @@ import by.bsuir.Kaminsky.DataAccessLayer.UserDao.UserDao;
 
 /**
  * DaoFactory creates different entities of Dao
- * @author Denis Kaminsky
+ * @author DenisKaminsky
  * @version 1.1
  */
 public class DaoFactory {
