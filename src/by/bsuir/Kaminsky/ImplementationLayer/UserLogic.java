@@ -83,7 +83,7 @@ public class UserLogic {
 					showUsers();
 					break;
 				case 11:		
-					
+					deleteUser();
 					break;
 			}
 		}		
@@ -100,5 +100,17 @@ public class UserLogic {
 		ArrayList<Object> users = new ArrayList<Object>(DaoFactory.getUserDao().getUsers());
 		
 		Controller.printListRequest(users);	
+	}
+	
+	private static void deleteUser() {
+		String answer = Controller.getParameterRequest("login of user, you want to delete");
+		
+		if (answer != null) {
+			if (!DaoFactory.getUserDao().delete(answer)) {
+				Controller.notifyUserRequest("User not found or administrator");
+			}else {
+				Controller.notifyUserRequest("User "+answer+" was deleted");
+			}
+		}		
 	}
 }

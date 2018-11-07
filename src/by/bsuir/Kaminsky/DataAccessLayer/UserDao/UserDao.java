@@ -20,7 +20,7 @@ public class UserDao implements IUserDao {
 		ArrayList<User> users = getUsers();
 		
 		for (User currentUser : users) {
-			if (currentUser.getLogin().equals(login)){	
+			if ( (currentUser.getLogin()).equals(login) && !currentUser.getIsAdministrator() ){	
 				flag = true;
 				break;
 			}
