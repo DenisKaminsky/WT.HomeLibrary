@@ -1,5 +1,9 @@
 package by.bsuir.Kaminsky.PresentationLayer;
 
-public class Main {
+import java.util.ArrayList;
 
+public class Main {
+	public static void main(String ... args){
+		HomeLibraryView.authorizeRequest();
+	}
 }

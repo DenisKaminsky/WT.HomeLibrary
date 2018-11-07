@@ -13,6 +13,18 @@ public class ConsoleReader {
 		return in.nextBoolean();
 	}
 	
+	public static boolean getAnswer() {
+		char answer;
+		do {
+			answer = in.nextLine().toLowerCase().charAt(0);
+		} while (answer != 'y' && answer != 'n');
+		if (answer == 'y')
+			return true;
+		else {
+			return false;
+		}
+	}
+	
 	public static void fflush() {
 		in.nextLine();
 	}
