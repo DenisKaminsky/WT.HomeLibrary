@@ -15,10 +15,10 @@ public class HomeLibraryView {
 		System.out.print("Do you have an account(Y/N): ");
 		answer = ConsoleReader.getAnswer();
 		if (answer)
-			System.out.println("<Authorization>");
+			System.out.println("[Authorization]");
 		else {
 			attribute = "(minimum 5 character)";
-			System.out.println("<Registration>");			
+			System.out.println("[Registration]");			
 		}
 		System.out.print("Input login: ");
 		login = ConsoleReader.getString();

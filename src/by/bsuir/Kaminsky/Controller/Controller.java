@@ -11,15 +11,19 @@ public class Controller {
 	public static Object[] authorizeRequest(){
 		Object[] result  = HomeLibraryView.getPersonalData();
 		
-		((String)result[1]).trim();
-		((String)result[2]).trim();
+		result[1] = ((String)result[1]).trim();
+		result[2] = ((String)result[2]).trim();
 		if ( isValidEmailAddress((String)result[1]) && isValidPassword((String)result[2]) )
 			return result;
 		else
 		{
-			HomeLibraryView.showMessage("Uncorrect login or password!");
+			HomeLibraryView.showMessage("<Uncorrect login or password!>");
 			return null;		
 		}
+	}
+	
+	public static void notifyUserRequest(String message) {
+		HomeLibraryView.showMessage("<"+message+">");
 	}
 	
 	private static boolean isValidEmailAddress(String email) {
