@@ -1,7 +1,6 @@
 package by.bsuir.Kaminsky.ImplementationLayer;
 
 import java.util.ArrayList;
-
 import by.bsuir.Kaminsky.Controller.Controller;
 import by.bsuir.Kaminsky.DataAccessLayer.DaoFactory;
 import by.bsuir.Kaminsky.ModelsLayer.User;
@@ -16,7 +15,7 @@ public class UserLogic {
 		
 		if (answer != null){		
 			if ( !(boolean)answer[0] ){			
-				newUser = new User((String)answer[1], (String)answer[2], true);
+				newUser = new User((String)answer[1], MD5.getHash((String)answer[2]), false);
 				if ( ! DaoFactory.getUserDao().save(newUser) ){				
 					Controller.notifyUserRequest("User with this login already exist!");
 					return;
@@ -31,7 +30,7 @@ public class UserLogic {
 	
 	private static void setAuthorizeUser(String login,String password) {
 		String name;
-		user = DaoFactory.getUserDao().getAuthorizeUser(login, password);
+		user = DaoFactory.getUserDao().getAuthorizeUser(login, MD5.getHash(password));
 		
 		if (user == null){
             Controller.notifyUserRequest("Wrong login or password");
