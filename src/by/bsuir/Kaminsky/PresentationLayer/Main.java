@@ -4,14 +4,16 @@ import java.util.ArrayList;
 
 import by.bsuir.Kaminsky.Controller.Controller;
 import by.bsuir.Kaminsky.ImplementationLayer.UserLogic;
+import by.bsuir.Kaminsky.ModelsLayer.Book;
 
 public class Main {
 	public static void main(String ... args){
 		//HomeLibraryView.authorize();
 		//UserLogic.LogIn();
 		while (true) {
-			System.out.println(Controller.chooseActionRequest(false));	
-			
+			UserLogic.logIn();
 		}
+		//Object nook = new Book("aa", "bb", true);
+		//System.out.println(nook.toString());
 	}
 }

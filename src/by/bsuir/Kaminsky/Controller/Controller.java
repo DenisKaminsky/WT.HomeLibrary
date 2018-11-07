@@ -75,6 +75,15 @@ public class Controller {
 		HomeLibraryView.showMessage("<"+message+">");
 	}
 	
+	public static void printListRequest(ArrayList<Object> list) {
+		int counter = 1;
+		
+		for (Object object : list) {
+			HomeLibraryView.showMessage(counter+":\n"+object.toString());
+			counter++;
+		}
+	}
+	
 	private static boolean isValidEmailAddress(String email) {
 		Pattern pattern = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 		Matcher matcher = pattern.matcher(email);

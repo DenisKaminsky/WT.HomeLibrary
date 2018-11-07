@@ -1,16 +1,11 @@
 package by.bsuir.Kaminsky.ImplementationLayer;
 
-import com.sun.scenario.animation.shared.InfiniteClipEnvelope;
-
 import by.bsuir.Kaminsky.Controller.Controller;
 import by.bsuir.Kaminsky.DataAccessLayer.DaoFactory;
-import by.bsuir.Kaminsky.DataAccessLayer.UserDao.UserDao;
 import by.bsuir.Kaminsky.ModelsLayer.User;
 
 public class UserLogic {
 	
-	private UserDao userDao;
-	private BookLogic bookLogic;
 	private static User user = null;
 	
 	public static void logIn(){	
@@ -19,7 +14,7 @@ public class UserLogic {
 		
 		if (answer != null){		
 			if ( !(boolean)answer[0] ){			
-				newUser = new User((String)answer[1], (String)answer[2], false);
+				newUser = new User((String)answer[1], (String)answer[2], true);
 				if ( ! DaoFactory.getUserDao().save(newUser) ){				
 					Controller.notifyUserRequest("User with this login already exist!");
 					return;
@@ -33,12 +28,14 @@ public class UserLogic {
 	}
 	
 	private static void setAuthorizeUser(String login,String password) {
+		String name;
 		user = DaoFactory.getUserDao().getAuthorizeUser(login, password);
 		
 		if (user == null){
             Controller.notifyUserRequest("Wrong login or password");
         } else{   
-        	Controller.notifyUserRequest("User "+user.getLogin()+" log in");
+        	name = (user.getIsAdministrator())?"Administrator ":"User ";
+        	Controller.notifyUserRequest(name+user.getLogin()+" log in");
             chooseAction();
         }	
 	}
@@ -54,11 +51,10 @@ public class UserLogic {
 					break;
 				case 1:	
 					flag = false;
-					Controller.notifyUserRequest("User "+user.getLogin()+" log out");
-					user = null;
+					logOut();
 					break;
 				case 2:	
-					
+					BookLogic.getBooks();
 					break;
 				case 3:			
 					break;
@@ -78,6 +74,11 @@ public class UserLogic {
 		}		
 	}
 	
-	
-	
+	private static void logOut()
+	{
+		String name = (user.getIsAdministrator())?"Administrator ":"User ";
+		
+		Controller.notifyUserRequest(name+user.getLogin()+" log out");
+		user = null;
+	}
 }

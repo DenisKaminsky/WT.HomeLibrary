@@ -12,7 +12,7 @@ public class HomeLibraryView {
 		boolean answer;
 		String login,password,attribute="";
 		
-		System.out.print("Do you have an account(Y/N): ");
+		System.out.print("\nDo you have an account(Y/N): ");
 		answer = ConsoleReader.getAnswer();
 		if (answer)
 			System.out.println("[Authorization]");
