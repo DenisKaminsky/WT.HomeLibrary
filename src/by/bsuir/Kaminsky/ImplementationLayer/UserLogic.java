@@ -63,10 +63,10 @@ public class UserLogic {
 					//finda
 					break;
 				case 5:	
-					//finde
+					BookLogic.findElectonicBooks();
 					break;
 				case 6:
-					//findp
+					BookLogic.findPaperBooks();
 					break;
 				case 7:	
 					//mod

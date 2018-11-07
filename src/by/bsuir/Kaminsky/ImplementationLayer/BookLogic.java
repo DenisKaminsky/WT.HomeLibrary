@@ -8,8 +8,16 @@ import by.bsuir.Kaminsky.ModelsLayer.Book;
 
 public class BookLogic {
 		
-	public void findPaperBooks(){
+	public static void findPaperBooks(){
+		ArrayList<Object> books = new ArrayList<Object>(DaoFactory.getBookDao().getPaperBooks());
 		
+		Controller.printListRequest(books);	
+    }
+	
+	public static void findElectonicBooks(){
+		ArrayList<Object> books = new ArrayList<Object>(DaoFactory.getBookDao().getElectonicBooks());
+		
+		Controller.printListRequest(books);	
     }
 	
 	public static void getBooks(){	

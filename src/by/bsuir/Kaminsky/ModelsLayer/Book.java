@@ -58,7 +58,7 @@ public class Book implements Serializable{
 	public String toString() {
 		String type = (isElectronic)?"Electronic":"Paper";
 		return  "Title: " + title +
-                ",\nAuthor: " + author +
-                ",\nType: "+ type;
+                "\nAuthor: " + author +
+                "\nType: "+ type;
 	}
 }
