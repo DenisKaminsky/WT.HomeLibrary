@@ -53,7 +53,7 @@ public class UserDao implements IUserDao {
 	/**
 	 * Save user to users database
 	 * @param user - User entity
-	 * @return true if user was successfully added to users database, else return false
+	 * @return return true if user was successfully added to users database, else return false
 	 */
     public boolean save(User user) {
     	boolean flag = false;

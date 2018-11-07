@@ -23,7 +23,7 @@ public class BookDao implements IBookDao{
 	/**
 	 * Delete book from books database
 	 * @param nook - Book entity
-	 * @return return true if book was successfully deleted from books database,else return false
+	 * @return true if book was successfully deleted from books database,else return false
 	 */
 	public boolean delete(Book book) {
 		int counter = 0;
@@ -218,7 +218,7 @@ public class BookDao implements IBookDao{
 	/**
      * Deserialize list of book entities from book database
      * @param fileName - path to book database
-     * @return return list of book entities if they was successfully loaded from file, else return empty list
+     * @return list of book entities if they was successfully loaded from file, else return empty list
      */
 	@SuppressWarnings("unchecked")
 	private ArrayList<Book> DeserializeBooks(String fileName) throws IOException, ClassNotFoundException{
@@ -241,7 +241,7 @@ public class BookDao implements IBookDao{
 
 	/**
      * Calculate path to books database
-     * @return return path to books database
+     * @return path to books database
      */
 	private String getDatabasePath(){
 		return new File("").getAbsolutePath()+"\\database\\BooksDatabase.dat";

@@ -5,10 +5,17 @@ import by.bsuir.Kaminsky.Controller.Controller;
 import by.bsuir.Kaminsky.DataAccessLayer.DaoFactory;
 import by.bsuir.Kaminsky.ModelsLayer.User;
 
+/**
+ * Provides a set of methods for working with users
+ * @author DenisKaminsky
+ * @version 1.1
+ */
 public class UserLogic {
 	
+	/** Current user */
 	private static User user = null;
 	
+	/** Log in */
 	public static void logIn(){	
 		User newUser;
 		Object[] answer = Controller.authorizeRequest();
@@ -28,6 +35,7 @@ public class UserLogic {
 		}
 	}
 	
+	/** Authorize */
 	private static void setAuthorizeUser(String login,String password) {
 		String name;
 		user = DaoFactory.getUserDao().getAuthorizeUser(login, MD5.getHash(password));
@@ -41,6 +49,7 @@ public class UserLogic {
         }	
 	}
 	
+	/** Choose action */
 	private static void chooseAction() {
 		boolean flag = true;
 		
@@ -88,6 +97,7 @@ public class UserLogic {
 		}		
 	}
 	
+	/** Log out */
 	private static void logOut(){	
 		String name = (user.getIsAdministrator())?"Administrator ":"User ";
 		
@@ -95,12 +105,14 @@ public class UserLogic {
 		user = null;
 	}
 	
+	/** Show all users */
 	private static void showUsers() {
 		ArrayList<Object> users = new ArrayList<Object>(DaoFactory.getUserDao().getUsers());
 		
 		Controller.printListRequest(users);	
 	}
 	
+	/** Delete user */
 	private static void deleteUser() {
 		String answer = Controller.getParameterRequest("login of user, you want to delete");
 		

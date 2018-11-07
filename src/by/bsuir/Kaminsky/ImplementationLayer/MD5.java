@@ -5,8 +5,18 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ * MD5 hash algorithm
+ * @author DenisKaminsky
+ * @version 1.1
+ */
 public class MD5 {
 	
+	/**
+	 * Compute hash for specified string
+	 * @param str - String for which the hash is calculated
+	 * @return hash value
+	 */
 	public static String getHash(String str) {
 	    MessageDigest messageDigest = null;
 	    byte[] digest = new byte[0];
