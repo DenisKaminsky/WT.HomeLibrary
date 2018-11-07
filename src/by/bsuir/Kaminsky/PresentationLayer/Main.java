@@ -8,6 +8,10 @@ import by.bsuir.Kaminsky.ImplementationLayer.UserLogic;
 public class Main {
 	public static void main(String ... args){
 		//HomeLibraryView.authorize();
-		UserLogic.LogIn();
+		//UserLogic.LogIn();
+		while (true) {
+			System.out.println(Controller.chooseActionRequest(false));	
+			
+		}
 	}
 }
