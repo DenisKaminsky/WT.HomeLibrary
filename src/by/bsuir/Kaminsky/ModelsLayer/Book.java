@@ -50,8 +50,8 @@ public class Book implements Serializable{
             return false;
 		book = (Book)obj;
         return (isElectronic == book.isElectronic) && (title == book.title ||
-            (title != null && title.equals(book.getTitle())))
-                && (author == book.author || (author != null && author.equals(book.getAuthor())));
+            (title != null && (title.toLowerCase()).equals(book.getTitle().toLowerCase())))
+                && (author == book.author || (author != null && (author.toLowerCase()).equals(book.getAuthor().toLowerCase())));
 	}
 	
 	@Override

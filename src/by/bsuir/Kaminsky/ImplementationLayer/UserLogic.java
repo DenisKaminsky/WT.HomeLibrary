@@ -69,7 +69,7 @@ public class UserLogic {
 					BookLogic.findPaperBooks();
 					break;
 				case 7:	
-					//mod
+					BookLogic.modifyBook();
 					break;
 				case 8:		
 					BookLogic.addBook();

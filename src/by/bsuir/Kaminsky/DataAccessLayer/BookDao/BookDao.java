@@ -71,6 +71,31 @@ public class BookDao implements IBookDao{
 		return flag;
 	}
 	
+	public boolean replace(Book bookOld,Book bookNew) {
+		int counter = 0;
+		boolean flag = false;
+		ArrayList<Book> books = getBooks();
+		
+		for (Book currentBook : books) {
+			if (currentBook.equals(bookOld)){	
+				flag = true;
+				break;
+			}
+			counter++;
+		}
+		if (flag)
+		{			
+			books.remove(counter);
+			books.add(counter, bookNew);
+			try {
+				SerializeBooks(books, fileName);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return flag;
+	}
+	
 	public ArrayList<Book> getBooks(){
 		File f = new File(fileName);
 		ArrayList<Book> books = new ArrayList<Book>();

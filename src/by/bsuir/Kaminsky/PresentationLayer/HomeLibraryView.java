@@ -43,7 +43,7 @@ public class HomeLibraryView {
 		return ConsoleReader.getString();
 	}
 	
-	public static String getBookParameter(String parameterName) {
+	public static String getParameter(String parameterName) {
 		System.out.print("Input "+parameterName+": ");
 		return ConsoleReader.getString();
 	}

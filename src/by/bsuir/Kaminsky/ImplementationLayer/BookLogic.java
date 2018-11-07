@@ -73,4 +73,18 @@ public class BookLogic {
 		}			
 	}
 	
+	public static void modifyBook() {
+		Book bookOld,bookNew;
+		Object[] answer = Controller.replaceBookRequest();
+		
+		if (answer != null) {
+			bookOld = new Book((String)answer[0],(String)answer[1],(Boolean)answer[2]);
+			bookNew = new Book((String)answer[3],(String)answer[4],(Boolean)answer[5]);
+			if (!DaoFactory.getBookDao().replace(bookOld, bookNew))
+				Controller.notifyUserRequest("Book not found");
+			else
+				Controller.notifyUserRequest("Book was modified");
+		}
+	}
+	
 }

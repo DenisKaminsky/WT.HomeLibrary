@@ -1,10 +1,8 @@
 package by.bsuir.Kaminsky.Controller;
 
 import java.util.ArrayList;
-import java.util.PrimitiveIterator.OfDouble;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import by.bsuir.Kaminsky.PresentationLayer.HomeLibraryView;
 
 public class Controller {
@@ -35,8 +33,32 @@ public class Controller {
 		}
 	}	
 	
+	public static Object[] replaceBookRequest() {
+		Object[] resultOld,resultNew;
+		
+		HomeLibraryView.showMessage("Enter the book you want to change");
+		resultOld = HomeLibraryView.getBookData();
+		resultOld[0] = ((String)resultOld[0]).trim();
+		resultOld[1] = ((String)resultOld[1]).trim();
+		if ( ( ((String)resultOld[0]).length() >0 ) && ( ((String)resultOld[1]).length()>0 ) ) {
+			HomeLibraryView.showMessage("Enter new book");
+			resultNew = HomeLibraryView.getBookData();
+			resultNew[0] = ((String)resultNew[0]).trim();
+			resultNew[1] = ((String)resultNew[1]).trim();
+			if ( ( ((String)resultNew[0]).length() >0 ) && ( ((String)resultNew[1]).length()>0 ) ) {
+				return new Object[] {resultOld[0],resultOld[1],resultOld[2],resultNew[0],resultNew[1],resultNew[2]};
+			}else {
+				notifyUserRequest("Uncorrect data");
+				return null;
+			}
+		}else{		
+			notifyUserRequest("Uncorrect data");
+			return null;		
+		}		
+	}
+	
 	public static String getParameterRequest(String parameterName) {
-		String result = HomeLibraryView.getBookParameter(parameterName);
+		String result = HomeLibraryView.getParameter(parameterName);
 		
 		if (result.length()>0)
 			return result;
