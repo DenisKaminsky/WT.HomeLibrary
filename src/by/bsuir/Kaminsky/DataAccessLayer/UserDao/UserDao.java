@@ -5,15 +5,27 @@ import java.util.ArrayList;
 
 import by.bsuir.Kaminsky.ModelsLayer.User;
 
+/**
+ * Work with users database
+ * @author DenisKaminsky
+ * @version 1.1
+ */
 public class UserDao implements IUserDao {
 	
+	/** Path to users database */
 	private String fileName;
 	
+	/** Constructor set the path to users database */	
 	public UserDao()
 	{
 		fileName = getDatabasePath();
 	}
 	
+	/**
+	 * Delete user from users database
+	 * @param login - Users email
+	 * @return return true if user was successfully deleted from database
+	 */
 	public boolean delete(String login){
 		int counter = 0;
 		boolean flag = false;
@@ -38,6 +50,11 @@ public class UserDao implements IUserDao {
 		return flag;
 	}
 	
+	/**
+	 * Save user to database
+	 * @param user - User entity
+	 * @return true if user was successfully added to users database
+	 */
     public boolean save(User user) {
     	boolean flag = false;
 		File f = new File(fileName);	
@@ -72,6 +89,12 @@ public class UserDao implements IUserDao {
 		return flag;
     }
     
+    /**
+     * Get user by login and password
+     * @param login - User's login
+     * @param password - User's password
+     * @return return user entity if it was found in users database, else return null
+     */
     public User getAuthorizeUser(String login, String password) {
     	ArrayList<User> users = getUsers();
 		User result = null;
@@ -86,6 +109,10 @@ public class UserDao implements IUserDao {
 		return result;
     }
     
+    /**
+     * Get all users from users database
+     * @return return list of user entities
+     */
     public ArrayList<User> getUsers(){
     	File f = new File(fileName);
 		ArrayList<User> users = new ArrayList<User>();
@@ -102,6 +129,11 @@ public class UserDao implements IUserDao {
     	return users;
     }
     
+    /**
+     * Serialize list of user entities to users database
+     * @param users - List of user entities
+     * @param fileName - path to users database
+     */
     private void SerializeUsers(ArrayList<User> users,String fileName) throws IOException {
 		FileOutputStream fileStream = new FileOutputStream(fileName);
 	    ObjectOutputStream objectStream = new ObjectOutputStream(fileStream);
@@ -111,6 +143,10 @@ public class UserDao implements IUserDao {
 	    fileStream.close();
 	}	
 	
+    /**
+     * Deserialize list of user entities from users database
+     * @param fileName - path to users database
+     */
 	@SuppressWarnings("unchecked")
 	private ArrayList<User> DeserializeUsers(String fileName) throws IOException, ClassNotFoundException{
 		ArrayList<User> result;
@@ -130,6 +166,10 @@ public class UserDao implements IUserDao {
 	    return result;
 	}
     
+	/**
+     * Calculate path do users database
+     * @return return path to users database
+     */
     private String getDatabasePath(){
 		return new File("").getAbsolutePath()+"\\database\\UsersDatabase.dat";
 	}    
