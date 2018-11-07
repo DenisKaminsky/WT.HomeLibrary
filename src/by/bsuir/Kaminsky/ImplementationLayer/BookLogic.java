@@ -8,9 +8,8 @@ import by.bsuir.Kaminsky.ModelsLayer.Book;
 
 public class BookLogic {
 		
-	public void findBookByAuthor(){
+	public void findPaperBooks(){
 		
-
     }
 	
 	public static void getBooks(){	
@@ -21,11 +20,28 @@ public class BookLogic {
 	
 	public static void addBook() {
 		Book book;
-		Object[] answer = Controller.addBookRequest();
+		Object[] answer = Controller.getBookRequest();
 		
 		if (answer != null) {
 			book = new Book((String)answer[0],(String)answer[1],(Boolean)answer[2]);
-			DaoFactory.getBookDao().save(book);
+			if (!DaoFactory.getBookDao().save(book))
+				Controller.notifyUserRequest("Book already exists");
+			else
+				Controller.notifyUserRequest("Book was added");
+		}			
+		
+	}
+	
+	public static void deleteBook() {
+		Book book;
+		Object[] answer = Controller.getBookRequest();
+		
+		if (answer != null) {
+			book = new Book((String)answer[0],(String)answer[1],(Boolean)answer[2]);
+			if (!DaoFactory.getBookDao().delete(book))
+				Controller.notifyUserRequest("Book not found");
+			else
+				Controller.notifyUserRequest("Book was deleted");
 		}			
 	}
 	

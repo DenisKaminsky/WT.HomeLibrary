@@ -19,14 +19,15 @@ public class BookDao implements IBookDao{
 		ArrayList<Book> books = getBooks();
 		
 		for (Book currentBook : books) {
-			if (currentBook.equals(book)){			
-				books.remove(counter);
+			if (currentBook.equals(book)){	
 				flag = true;
+				break;
 			}
 			counter++;
 		}
 		if (flag)
-		{
+		{			
+			books.remove(counter);
 			try {
 				SerializeBooks(books, fileName);
 			} catch (IOException e) {
@@ -103,6 +104,28 @@ public class BookDao implements IBookDao{
 		
 		for (Book book : books) {
 			if (book.getAuthor().equals(author))
+				result.add(book);
+		}
+		return result;
+	}
+	
+	public ArrayList<Book> getPaperBooks(){
+		ArrayList<Book> books = getBooks();
+		ArrayList<Book> result= new ArrayList<Book>();
+		
+		for (Book book : books) {
+			if (!book.getIsElectronic())
+				result.add(book);
+		}
+		return result;
+	}
+	
+	public ArrayList<Book> getElectonicBooks(){
+		ArrayList<Book> books = getBooks();
+		ArrayList<Book> result= new ArrayList<Book>();
+		
+		for (Book book : books) {
+			if (book.getIsElectronic())
 				result.add(book);
 		}
 		return result;

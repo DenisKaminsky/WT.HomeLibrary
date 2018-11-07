@@ -21,7 +21,7 @@ public class Controller {
 		}
 	}
 	
-	public static Object[] addBookRequest() {
+	public static Object[] getBookRequest() {
 		Object[] result = HomeLibraryView.getBookData();
 		
 		result[0] = ((String)result[0]).trim();
@@ -32,7 +32,7 @@ public class Controller {
 			notifyUserRequest("Uncorrect data");
 			return null;		
 		}
-	}
+	}	
 	
 	public static int chooseActionRequest(boolean isAdmin){
 		int result  = -1;
@@ -86,6 +86,10 @@ public class Controller {
 	
 	public static void notifyUserRequest(String message) {
 		HomeLibraryView.showMessage("<"+message+">");
+	}
+	
+	public static void showMessageRequest(String message) {
+		HomeLibraryView.showMessage(message);
 	}
 	
 	public static void printListRequest(ArrayList<Object> list) {

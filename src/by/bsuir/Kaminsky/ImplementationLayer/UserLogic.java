@@ -57,19 +57,25 @@ public class UserLogic {
 					BookLogic.getBooks();
 					break;
 				case 3:			
+					//findt
 					break;
-				case 4:			
+				case 4:	
+					//finda
 					break;
-				case 5:			
+				case 5:	
+					//finde
 					break;
-				case 6:			
+				case 6:
+					//findp
 					break;
-				case 7:			
+				case 7:	
+					//mod
 					break;
 				case 8:		
 					BookLogic.addBook();
 					break;
-				case 9:			
+				case 9:		
+					BookLogic.deleteBook();
 					break;
 			}
 		}		
