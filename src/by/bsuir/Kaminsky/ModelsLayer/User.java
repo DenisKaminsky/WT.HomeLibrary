@@ -57,8 +57,8 @@ public class User implements Serializable {
 	public String toString() {
 		String type = (isAdministrator)?"Administrator":"User";
 		return  "Login: " + login +
-                ",\nPassword: " + password +
-                ",\nType: "+ type;
+                //"\nPassword: " + password +
+                "\nType: "+ type;
 	}
 	
 }

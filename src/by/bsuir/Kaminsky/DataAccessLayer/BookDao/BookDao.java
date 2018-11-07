@@ -117,7 +117,7 @@ public class BookDao implements IBookDao{
 		ArrayList<Book> result= new ArrayList<Book>();
 		
 		for (Book book : books) {
-			if (book.getTitle().equals(title))
+			if ((book.getTitle().toLowerCase()).equals(title.toLowerCase()))
 				result.add(book);
 		}
 		return result;
@@ -128,7 +128,7 @@ public class BookDao implements IBookDao{
 		ArrayList<Book> result= new ArrayList<Book>();
 		
 		for (Book book : books) {
-			if (book.getAuthor().equals(author))
+			if ((book.getAuthor().toLowerCase()).equals(author.toLowerCase()))
 				result.add(book);
 		}
 		return result;

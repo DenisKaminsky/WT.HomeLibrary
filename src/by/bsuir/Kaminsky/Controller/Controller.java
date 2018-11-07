@@ -103,6 +103,12 @@ public class Controller {
 			case "/delete":	
 				result=9;
 				break;
+			case "/allusers":	
+				result=10;
+				break;
+			case "/udelete":	
+				result=11;
+				break;
 			case "/help":
 				HomeLibraryView.printAvailableActions();
 				break;

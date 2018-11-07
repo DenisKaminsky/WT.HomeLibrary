@@ -1,5 +1,7 @@
 package by.bsuir.Kaminsky.ImplementationLayer;
 
+import java.util.ArrayList;
+
 import by.bsuir.Kaminsky.Controller.Controller;
 import by.bsuir.Kaminsky.DataAccessLayer.DaoFactory;
 import by.bsuir.Kaminsky.ModelsLayer.User;
@@ -77,15 +79,26 @@ public class UserLogic {
 				case 9:		
 					BookLogic.deleteBook();
 					break;
+				case 10:		
+					showUsers();
+					break;
+				case 11:		
+					
+					break;
 			}
 		}		
 	}
 	
-	private static void logOut()
-	{
+	private static void logOut(){	
 		String name = (user.getIsAdministrator())?"Administrator ":"User ";
 		
 		Controller.notifyUserRequest(name+user.getLogin()+" log out");
 		user = null;
+	}
+	
+	private static void showUsers() {
+		ArrayList<Object> users = new ArrayList<Object>(DaoFactory.getUserDao().getUsers());
+		
+		Controller.printListRequest(users);	
 	}
 }

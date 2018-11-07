@@ -59,5 +59,8 @@ public class HomeLibraryView {
         System.out.println("/mod - Modify book");
         System.out.println("/add - Add book");
         System.out.println("/delete - Delete book");
+        System.out.println("/allusers - Show all users");
+        System.out.println("/udelete - Delete user");
+        
 	}
 }
