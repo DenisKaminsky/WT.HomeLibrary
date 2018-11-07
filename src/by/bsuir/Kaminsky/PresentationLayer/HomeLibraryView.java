@@ -1,7 +1,5 @@
 package by.bsuir.Kaminsky.PresentationLayer;
 
-import java.util.ArrayList;
-
 public class HomeLibraryView {
 	
 	public static void showMessage(String message) {
@@ -42,6 +40,11 @@ public class HomeLibraryView {
 	
 	public static String getAction() {		
 		System.out.print("\nInput command(/help to see more info): ");
+		return ConsoleReader.getString();
+	}
+	
+	public static String getBookParameter(String parameterName) {
+		System.out.print("Input "+parameterName+": ");
 		return ConsoleReader.getString();
 	}
 	

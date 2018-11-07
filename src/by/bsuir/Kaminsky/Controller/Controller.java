@@ -1,6 +1,7 @@
 package by.bsuir.Kaminsky.Controller;
 
 import java.util.ArrayList;
+import java.util.PrimitiveIterator.OfDouble;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -33,6 +34,16 @@ public class Controller {
 			return null;		
 		}
 	}	
+	
+	public static String getParameterRequest(String parameterName) {
+		String result = HomeLibraryView.getBookParameter(parameterName);
+		
+		if (result.length()>0)
+			return result;
+		else
+			notifyUserRequest("Uncorrect "+parameterName);			
+		return null;
+	}
 	
 	public static int chooseActionRequest(boolean isAdmin){
 		int result  = -1;
@@ -88,10 +99,6 @@ public class Controller {
 		HomeLibraryView.showMessage("<"+message+">");
 	}
 	
-	public static void showMessageRequest(String message) {
-		HomeLibraryView.showMessage(message);
-	}
-	
 	public static void printListRequest(ArrayList<Object> list) {
 		int counter = 1;
 		
@@ -99,6 +106,8 @@ public class Controller {
 			HomeLibraryView.showMessage(counter+":\n"+object.toString());
 			counter++;
 		}
+		if (counter == 1)
+			notifyUserRequest("Books not found");
 	}
 	
 	private static boolean isValidEmailAddress(String email) {

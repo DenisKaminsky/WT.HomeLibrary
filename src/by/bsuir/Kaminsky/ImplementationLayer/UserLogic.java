@@ -56,11 +56,11 @@ public class UserLogic {
 				case 2:	
 					BookLogic.getBooks();
 					break;
-				case 3:			
-					//findt
+				case 3:		
+					BookLogic.findBooksByTitle();
 					break;
 				case 4:	
-					//finda
+					BookLogic.findBooksByAuthor();
 					break;
 				case 5:	
 					BookLogic.findElectonicBooks();
