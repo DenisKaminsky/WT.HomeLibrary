@@ -5,7 +5,7 @@ import by.bsuir.Kaminsky.ModelsLayer.User;
 
 public interface IUserDao {
 	
-	boolean delete(User user);
+	boolean delete(String login);
     boolean save(User user);
     User getAuthorizeUser(String login, String password);
     ArrayList<User> getUsers();

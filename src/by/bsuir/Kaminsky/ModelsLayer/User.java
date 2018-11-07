@@ -49,9 +49,8 @@ public class User implements Serializable {
 		if (obj == null || obj.getClass() != this.getClass())
             return false;
 		user = (User)obj;
-        return (isAdministrator == user.isAdministrator) && (login == user.login ||
-            (login != null && login.equals(user.getLogin())))
-                && (password == user.password || (password != null && password.equals(user.getPassword())));
+        return (isAdministrator == user.isAdministrator) && ( login == user.login ||
+            ( login != null && login.equals(user.getLogin()) ) );
 	}
 	
 	@Override

@@ -17,7 +17,7 @@ public class Controller {
 			return result;
 		else
 		{
-			HomeLibraryView.showMessage("<Uncorrect login or password!>");
+			notifyUserRequest("Uncorrect login or password!");
 			return null;		
 		}
 	}

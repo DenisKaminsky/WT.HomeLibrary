@@ -14,13 +14,13 @@ public class UserDao implements IUserDao {
 		fileName = getDatabasePath();
 	}
 	
-	public boolean delete(User user){
+	public boolean delete(String login){
 		int counter = 0;
 		boolean flag = false;
 		ArrayList<User> users = getUsers();
 		
 		for (User currentUser : users) {
-			if (currentUser.equals(user)){	
+			if (currentUser.getLogin().equals(login)){	
 				flag = true;
 				break;
 			}
