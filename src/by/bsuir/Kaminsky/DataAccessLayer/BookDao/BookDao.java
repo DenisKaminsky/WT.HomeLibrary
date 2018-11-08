@@ -22,7 +22,7 @@ public class BookDao implements IBookDao{
 		
 	/**
 	 * Delete book from books database
-	 * @param nook - Book entity
+	 * @param book - Book entity
 	 * @return true if book was successfully deleted from books database,else return false
 	 */
 	public boolean delete(Book book) {

@@ -1,0 +1,7 @@
+by.bsuir.Kaminsky.Controller
+by.bsuir.Kaminsky.DataAccessLayer
+by.bsuir.Kaminsky.DataAccessLayer.BookDao
+by.bsuir.Kaminsky.DataAccessLayer.UserDao
+by.bsuir.Kaminsky.ImplementationLayer
+by.bsuir.Kaminsky.ModelsLayer
+by.bsuir.Kaminsky.PresentationLayer

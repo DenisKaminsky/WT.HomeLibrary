@@ -21,7 +21,11 @@ public class User implements Serializable {
 	/** User type */
 	private boolean isAdministrator;
 	
-	/** Constructor set users's login,password and type */
+	/** Constructor set users's login,password and type 
+	 * @param login - User login
+	 * @param password - User password
+	 * @param isAdministrator - User type
+	 * */
 	public User(String login,String password,boolean isAdministrator){
 		this.login = login;
 		this.password = password;

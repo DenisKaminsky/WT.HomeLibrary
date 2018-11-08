@@ -21,7 +21,11 @@ public class Book implements Serializable{
 	/** Type of book */
 	private boolean isElectronic;
 	
-	/** Constructor set book's author,title and type */
+	/** Constructor set book's author,title and type 
+	 * @param author - Book author
+	 * @param title - Book title
+	 * @param isElectronic - Book Type
+	 * */
 	public Book(String author,String title,boolean isElectronic){
 		this.author = author;
 		this.title = title;
